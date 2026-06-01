@@ -16,8 +16,9 @@ public class Cita {
     private java.util.Date fechaCita;
 
     @Required
-    @Temporal(TemporalType.TIME)
-    private java.util.Date horaCita;
+    @Stereotype("TIME")
+    @Column(length = 8)
+    private String horaCita;
 
     @Column(length = 200)
     private String descripcion;
@@ -46,8 +47,8 @@ public class Cita {
     public java.util.Date getFechaCita() { return fechaCita; }
     public void setFechaCita(java.util.Date fechaCita) { this.fechaCita = fechaCita; }
 
-    public java.util.Date getHoraCita() { return horaCita; }
-    public void setHoraCita(java.util.Date horaCita) { this.horaCita = horaCita; }
+    public String getHoraCita() { return horaCita; }
+    public void setHoraCita(String horaCita) { this.horaCita = horaCita; }
 
     public String getDescripcion() { return descripcion; }
     public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
