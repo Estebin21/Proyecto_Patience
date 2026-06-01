@@ -31,12 +31,10 @@ public class Cita {
 
     @ManyToOne
     @Required
-    @ReferenceView("Simple")
     private Paciente paciente;
 
     @ManyToOne
     @Required
-    @ReferenceView("Simple")
     private Medico medico;
 
     @OneToOne(mappedBy = "cita", cascade = CascadeType.ALL)

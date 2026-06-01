@@ -24,7 +24,6 @@ public class Usuario {
     private Rol rol;
 
     @ManyToOne
-    @ReferenceView("Simple")
     private Medico medico;
 
     public int getUsuarioid() { return usuarioid; }
