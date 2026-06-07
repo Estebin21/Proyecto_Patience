@@ -108,4 +108,33 @@ public class Paciente {
 		int resultado = (10 - (suma % 10)) % 10;
 		return resultado == digitoVerificador;
 	}
+
+    public static int calcularEdad(java.util.Date fechaNacimiento) {
+        if (fechaNacimiento == null) {
+            return -1;
+        }
+        java.util.Calendar hoy = java.util.Calendar.getInstance();
+        java.util.Calendar nacimiento = java.util.Calendar.getInstance();
+        nacimiento.setTime(fechaNacimiento);
+        int edad = hoy.get(java.util.Calendar.YEAR) - nacimiento.get(java.util.Calendar.YEAR);
+        if (hoy.get(java.util.Calendar.DAY_OF_YEAR) < nacimiento.get(java.util.Calendar.DAY_OF_YEAR)) {
+            edad--;
+        }
+        return edad;
+    }
+
+    public static String clasificarPaciente(java.util.Date fechaNacimiento) {
+        int edad = calcularEdad(fechaNacimiento);
+        if (edad < 0) {
+            return "Fecha invalida";
+        } else if (edad <= 11) {
+            return "Pediatrico";
+        } else if (edad <= 17) {
+            return "Adolescente";
+        } else if (edad <= 64) {
+            return "Adulto";
+        } else {
+            return "Adulto mayor";
+        }
+    }
 }
