@@ -11,8 +11,14 @@ import org.openxava.util.*;
 public class Patience {
 
 	public static void main(String[] args) throws Exception {
-		DBServer.start("Patience-db"); // To use your own database comment this line and configure src/main/webapp/META-INF/context.xml
-		AppServer.run("Patience"); // Use AppServer.run("") to run in root context
+		System.out.println("--- PRUEBA validarCedula ---");
+		System.out.println(com.patience.Patience.model.Paciente.validarCedula("1713175071"));  // true
+		System.out.println(com.patience.Patience.model.Paciente.validarCedula("17131"));       // false
+		System.out.println(com.patience.Patience.model.Paciente.validarCedula("9913175071"));  // false
+		System.out.println("--- FIN PRUEBA ---");
+
+		DBServer.start("Patience-db");
+		AppServer.run("Patience");
 	}
 
 }
